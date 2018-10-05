@@ -16,9 +16,9 @@ In the challenge page, we'd like to test the user's ability to sort list of numb
 Please implement the following features by updating `challenge.js` and `challenge.html`:
 
 1. Replace content inside `<p class="numbers">10,3,1,2,5,9</p>` to display a list of random numbers. The length of these numbers are also random.
-2. When the user click "submit", if the answer is correct, then redirect them to pass.html
-3. When the user click "submit", if the answer is incorrect, then redirect them to retry.html
+2. When the user click "submit", if the answer is correct, then redirect them to `pass.html`
+3. When the user click "submit", if the answer is incorrect, then redirect them to `retry.html`
 
 Bonus points:
 1. We also want the user to drop number if it’s duplicate. For example, we display list of numbers: "2,1,5,3,2,6" Answer is correct if user enter "1,2,2,3,5,6"
-2. Limit number of retries to three. After the users fail to answer the question for three times, redirect them to fail.html
+2. Limit number of retries to three. After the users fail to answer the question for three times, redirect them to `fail.html`
