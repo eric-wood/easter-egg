@@ -4,7 +4,7 @@ There is a sign up form in Envoy's webpage. (index.html) When the user's e-mail 
 
 Please implement the following features by updating `app.js` and `index.html`
 
-1. When the user enter his/her e-mail address, as soon as it has keyword that we are looking for, display the modal
+1. When the user enter their email address, as soon as it has a keyword that we are looking for, display the modal
 2. When the user clicks "No", it should hide the modal
 3. When the user clicks "Yes", it should redirect them to `challenge.html`
 4. Sign up form and modal are provided in `index.html`
