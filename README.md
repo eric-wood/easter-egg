@@ -1,7 +1,7 @@
 Instruction
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) the repository
-2. Close the forked repository with `git clone <your fork URL>`
+2. Clone the forked repository with `git clone <your fork URL>`
 3. Create a branch with `git checkout -b your-branch-name`
 4. Finish the challenge on your branch
 5. Once you are ready to submit, create a [pull request](https://help.github.com/articles/creating-a-pull-request/), the destination is your forked repository's master
