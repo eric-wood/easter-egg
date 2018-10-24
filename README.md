@@ -1,3 +1,13 @@
+Instruction
+
+1. [Fork](https://help.github.com/articles/fork-a-repo/) the repository
+2. Clone the forked repository with `git clone <your fork URL>`
+3. Create a branch with `git checkout -b your-branch-name`
+4. Finish the challenge on your branch
+5. Once you are ready to submit, create a [pull request](https://help.github.com/articles/creating-a-pull-request/), the destination is your forked repository's master
+6. Submit the pull request URL to us
+
+---
 Envoy is hiring! We're trying to build an easter egg in our site to hire a talented JavaScript developer.
 Here is how it'll work:
 There is a sign up form in Envoy's webpage. (index.html) When the user's e-mail has keywords such as "JavaScript" or "Ruby", we'll display a modal that covers entire screen says "Looks like you're a kickass coder, do you want to play a game?"
