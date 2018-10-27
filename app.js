@@ -17,7 +17,7 @@ class App {
     this.nodes = Object.keys(this.nodeRefs).reduce((acc, key) => { 
       acc[key] = document.querySelector(this.nodeRefs[key]);
       return acc;
-  }, {});
+    }, {});
   }
 
   addEventListeners() {
