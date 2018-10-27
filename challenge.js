@@ -21,9 +21,13 @@ class Challenge {
   initChallenge() {
     const length = this.random(4, 10);
     this.numbers = new Array(length).fill(0).map(() => this.random(0, 10));
-    this.solution = Array.from(new Set(this.numbers))
-      .sort((a, b) => a - b);
+    this.createSolution();
     this.nodes.numbers.innerText = this.numbers.join(',');
+  }
+
+  createSolution() {
+    const deduped = Array.from(new Set(this.numbers));
+    this.solution = deduped.sort((a, b) => a - b);
   }
 
   fetchNodes() {
@@ -43,20 +47,31 @@ class Challenge {
       element === a2[index]
     ));
   }
+  
+  parseUserInput(input) {
+    // This could be improved to be more permissive if we wanted to
+    // accept a wider variety of inputs (such as allowing spaces)
+    return input
+      .split(',')
+      .map((i) => parseInt(i, 10));
+  }
+
+  hasLost() {
+    return this.attempts >= MAX_ATTEMPTS;
+  }
 
   onSubmit(event) {
     event.preventDefault();
     const userInput = this.nodes.input.value
-      .split(',')
-      .map((i) => parseInt(i, 10));
 
+    const userInput = this.parseUserInput(this.nodes.input.value);
     if (this.arraysAreEqual(userInput, this.solution)) {
       this.win();
     }
 
     this.attempts += 1;
 
-    if (this.attempts >= MAX_ATTEMPTS) {
+    if (this.hasLost()) {
       this.fail();
     }
   }
