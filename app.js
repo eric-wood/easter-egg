@@ -1,33 +1,56 @@
-let keywords = ["Ember", "Ruby", "Rails", "Elixir", "React"];
+class App {
+  constructor() {
+    this.nodeRefs = {
+      email: 'input[name="email"]',
+      modal: '.modal',
+      yesBtn: '.modal .btn-primary',
+      noBtn: '.modal .btn-outline',
+    };
 
-let seenModal = false
-const emailInput = document.querySelector('input[name="email"]');
-const modal = document.querySelector('.modal');
-const yesButton = modal.querySelector('.btn-primary')
-const noButton = modal.querySelector('.btn-outline')
+    this.keywords = ["Ember", "Ruby", "Rails", "Elixir", "React"];
+    this.seenModal = false;
+    this.fetchNodes();
+    this.addEventListeners();
+  }
 
-function showModal() {
-  if (seenModal) { return }
-  modal.classList.remove('hide');
-  seenModal = true;
-}
+  fetchNodes() {
+    this.nodes = Object.keys(this.nodeRefs).reduce((acc, key) => { 
+      acc[key] = document.querySelector(this.nodeRefs[key]);
+      return acc;
+  }, {});
+  }
 
-function hideModal() {
-  modal.classList.add('hide');
-}
+  addEventListeners() {
+    this.nodes.email.addEventListener('keydown', () => this.onInputChange());
+    this.nodes.email.addEventListener('keyup', () => this.onInputChange());
+    this.nodes.yesBtn.addEventListener('click', () => this.goToChallenge());
+    this.nodes.noBtn.addEventListener('click', () => this.hideModal());
+  }
 
-function handleInputChange() {
-  const isMatch = keywords.some((keyword) => {
-    const value = emailInput.value.toLowerCase();
-    return value.includes(keyword.toLowerCase());
-  });
+  onInputChange() {
+    const isMatch = this.keywords.some((keyword) => {
+      const value = this.nodes.email.value.toLowerCase();
+      return value.includes(keyword.toLowerCase());
+    });
 
-  if (isMatch) {
-    showModal();
+    if (isMatch) {
+      this.showModal();
+    }
+  }
+
+  showModal() {
+    if (this.seenModal) { return }
+    this.nodes.modal.classList.remove('hide');
+    this.seenModal = true;
+  }
+
+  hideModal() {
+    this.nodes.modal.classList.add('hide');
+  }
+
+  goToChallenge() {
+    window.location = 'challenge.html';
   }
 }
 
-emailInput.addEventListener('keydown', handleInputChange);
-emailInput.addEventListener('keyup', handleInputChange);
-yesButton.addEventListener('click', () => window.location = 'challenge.html');
-noButton.addEventListener('click', hideModal);
+window.app = new App();
